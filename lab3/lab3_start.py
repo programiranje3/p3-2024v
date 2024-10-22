@@ -33,8 +33,35 @@ Vezbe, dvocas 3
 # print("string_stats('Today is October 24, 2023!'):")
 # print(string_stats("Today is October 24, 2023!"))
 
+
 #%%
 # Zadatak 4
+
+
+
+
+#%%
+# print("Passwords to check: ABd1234@1, a F1#, 2w3E*, 2We334#5, t_456wr")
+# validation_dict = password_check("ABd1234@1, a F1#,2w3E*,2We334#5, t_456wr")
+# print("Validation results:")
+# for password, result in validation_dict.items():
+#     print(f"- {password}: {', '.join(result)}")
+
+#%%
+# Zadatak 5
+
+
+
+
+#%%
+# team = [{'name': 'Bob', 'age': 18, 'score': 50.0},
+#         {'name': 'Tim', 'age': 17, 'score': 84.0},
+#         {'name': 'Jim', 'age': 22, 'score': 94.0},
+#         {'name': 'Joe', 'age': 19, 'score': 85.5}]
+# team_stats(team)
+
+#%%
+# Zadatak 6
 
 
 
@@ -48,32 +75,6 @@ Vezbe, dvocas 3
 #     they said it was like releasing a tiger into the world.
 # """)
 # token_frequency(gpt3_response)
-
-#%%
-# Zadatak 5
-
-
-
-
-#%%
-# print("Passwords to check: ABd1234@1, a F1#, 2w3E*, 2We334#5, t_456wr")
-# validation_dict = password_check("ABd1234@1, a F1#,2w3E*,2We334#5, t_456wr")
-# print("Validation results:")
-# for password, result in validation_dict.items():
-#     print(f"- {password}: {', '.join(result)}")
-
-#%%
-# Zadatak 6
-
-
-
-
-#%%
-# team = [{'name': 'Bob', 'age': 18, 'score': 50.0},
-#         {'name': 'Tim', 'age': 17, 'score': 84.0},
-#         {'name': 'Jim', 'age': 22, 'score': 94.0},
-#         {'name': 'Joe', 'age': 19, 'score': 85.5}]
-# team_stats(team)
 
 #%%
 # Zadatak 7
@@ -92,7 +93,10 @@ Vezbe, dvocas 3
 
 
 #%%
-
+# sample_websites = ['https://www.technologyreview.com/', 'https://www.tidymodels.org/',
+#                    'https://podcasts.google.com/', 'https://www.jamovi.org/', 'http://bg.ac.rs/']
+#
+# print(website_stats(sample_websites))
 
 
 

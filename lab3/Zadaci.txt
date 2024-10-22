@@ -30,23 +30,6 @@ znakova interpunkcije (.,!?;:) u datom stringu. Funkcija vraća rečnik sa izra�
 
 # ZADATAK 4:
 
-Napisati funkciju (token_frequency) koja prima segment teksta i računa frekvenciju tokena u tekstu
-(podrazumeva se da je token niz uzastopnih karaktera između dva razmaka).
-Izračunati frekvenciju tokena na način neosetljiv na velika i mala slova (case insensitive).
-Tokeni i njihove frekvencije treba sačuvati u rečniku (tokeni kao ključevi, frekvencije kao vrednosti).
-Funkcija ispisuje rezultujući rečnik nakon što sortira tokene alfabetski.
-
-Nakon testiranja funkcije, izmeniti je tako da:
-
-- tokeni budu očišćeni od bilo kakvih suvišnih karaktera (npr. razmaci ili interpunkcijski znaci)
-pre dodavanja u rečnik
-- samo tokeni sa najmanje 3 karaktera su dodati u rečnik
-- pre ispisa, unosi u rečnik su sortirani: prvo u opadajućem redosledu frekvencije tokena, a zatim u
-rastućem abecednom redosledu
-
-
-# ZADATAK 5:
-
 Napisati funkciju (password_check) koja prima sekvencu lozinki odvojenih zarezima i proverava
 njihovu validnost koristeći sledeće kriterijume:
 
@@ -62,7 +45,7 @@ treba da bude lista sa:
 - identifikovanim problemima, ako lozinka nije validna
 
 
-# ZADATAK 6:
+# ZADATAK 5:
 
 Napisati funkciju (team_stats) koja kao ulaz prima listu rečnika sa podacima o članovima sportskog tima.
 Svaki rečnik sadrži sledeće podatke o jednom članu tima: ime, godine i takmičarski rezultat (0-100). 
@@ -75,6 +58,23 @@ Funkcija računa i ispisuje sledeće statistike:
 
 Na kraju, funkcija ispisuje listu članova sortiranu po rezultatima članova (od najvišeg do najnižeg).
 Savet: modul 'statistics' pruža funkcije za potrebne statistike.
+
+
+# ZADATAK 6:
+
+Napisati funkciju (token_frequency) koja prima segment teksta i računa frekvenciju tokena u tekstu
+(podrazumeva se da je token niz uzastopnih karaktera između dva razmaka).
+Izračunati frekvenciju tokena na način neosetljiv na velika i mala slova (case insensitive).
+Tokeni i njihove frekvencije treba sačuvati u rečniku (tokeni kao ključevi, frekvencije kao vrednosti).
+Funkcija ispisuje rezultujući rečnik nakon što sortira tokene alfabetski.
+
+Nakon testiranja funkcije, izmeniti je tako da:
+
+- tokeni budu očišćeni od bilo kakvih suvišnih karaktera (npr. razmaci ili interpunkcijski znaci)
+pre dodavanja u rečnik
+- samo tokeni sa najmanje 3 karaktera su dodati u rečnik
+- pre ispisa, unosi u rečnik su sortirani: prvo u opadajućem redosledu frekvencije tokena, a zatim u
+rastućem abecednom redosledu
 
 
 # ZADATAK 7:
