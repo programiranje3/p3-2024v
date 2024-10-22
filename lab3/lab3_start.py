@@ -30,8 +30,8 @@ Vezbe, dvocas 3
 
 
 #%%
-# print("string_stats('Today is October 24, 2023!'):")
-# print(string_stats("Today is October 24, 2023!"))
+# print("string_stats('Today is October 22, 2024!'):")
+# print(string_stats("Today is October 22, 2024!"))
 
 
 #%%
