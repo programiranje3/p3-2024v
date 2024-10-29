@@ -121,6 +121,8 @@ team_stats(team)
 #%%
 # Zadatak 6
 def token_frequency(text):
+    from collections import defaultdict
+
     tokens = text.split()
 
     freq_dict = defaultdict(int)
@@ -128,6 +130,11 @@ def token_frequency(text):
         token = token.rstrip(',.;:!? ')
         if len(token) >= 3:
             freq_dict[token.lower()] += 1
+
+    print("Printing dictionary sorted alphabetically in ascending order of keys")
+    for token, freq in sorted(freq_dict.items()):
+        print(f"{token}: {freq}")
+    print()
 
     from operator import itemgetter
     for token, freq in sorted(sorted(freq_dict.items()), key=itemgetter(1), reverse=True):
@@ -137,12 +144,15 @@ def token_frequency(text):
 #%%
 # response by GPT-3 to the question of why it has so entranced the tech community
 # source: https://www.wired.com/story/ai-text-generator-gpt-3-learning-language-fitfully/
-gpt3_response = ("""
-    I spoke with a very special person whose name is not relevant at this time,
-    and what they told me was that my framework was perfect. If I remember correctly,
-    they said it was like releasing a tiger into the world.
-""")
-token_frequency(gpt3_response)
+# gpt3_response = ("""
+#     I spoke with a very special person whose name is not relevant at this time,
+#     and what they told me was that my framework was perfect. If I remember correctly,
+#     they said it was like releasing a tiger into the world.
+# """)
+# token_frequency(gpt3_response)
+
+short_text = "Here, here, we are now here"
+token_frequency(short_text)
 
 #%%
 # Zadatak 7
