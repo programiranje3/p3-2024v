@@ -120,6 +120,9 @@ team_stats(team)
 
 #%%
 # Zadatak 6
+# Napomena: za vise informacija o specificnostima sortiranja, pogledati:
+# https://docs.python.org/3/howto/sorting.html#sort-stability-and-complex-sorts
+
 def token_frequency(text):
     from collections import defaultdict
 
