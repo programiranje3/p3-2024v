@@ -134,10 +134,10 @@ def token_frequency(text):
         if len(token) >= 3:
             freq_dict[token.lower()] += 1
 
-    print("Printing dictionary sorted alphabetically in ascending order of keys")
-    for token, freq in sorted(freq_dict.items()):
-        print(f"{token}: {freq}")
-    print()
+    # print("Printing dictionary sorted alphabetically in ascending order of keys")
+    # for token, freq in sorted(freq_dict.items()):
+    #     print(f"{token}: {freq}")
+    # print()
 
     from operator import itemgetter
     for token, freq in sorted(sorted(freq_dict.items()), key=itemgetter(1), reverse=True):
