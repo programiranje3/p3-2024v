@@ -99,6 +99,23 @@ print(process_product_orders(orders, discount=10))
 #%%
 # Zadatak 4.1
 
+def compute_sum_loop(n):
+    sum_of_sums = 0
+    for x in range(n+1):
+        # S(x) = 1 + 2 + ... + x-1 + x
+        for i in range(x + 1):
+            sum_of_sums += i
+    return sum_of_sums
+
+
+def compute_sum_lc(n):
+    return sum([sum(range(x+1)) for x in range(n+1)])
+
+
+def compute_sum_mr(n):
+    from functools import reduce
+    mapping = map(lambda x: sum(range(x+1)), range(n+1))
+    return reduce(lambda a,b: a + b, mapping)
 
 
 #%%
@@ -128,7 +145,8 @@ print(process_product_orders(orders, discount=10))
 #%%
 # Zadatak 5.1
 
-
+def sum_of_sums(*numbers, n=10):
+    return sum([sum([x**i for i in range(n+1)]) for x in numbers])
 
 
 #%%
