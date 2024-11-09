@@ -6,8 +6,8 @@ koje se mogu ponuditi putnicima (npr., izbor sedista, obrok, wifi, osiguranje le
 U okviru ove enumeracije, potrebno je kreirati:
 
 - static metodu `valid_service_str` koja za zadati ulazni string proverava da li predstavlja
-  naziv ili vrednost neke od UslugaNaLetu instanci i vraća True ako je to slučaj, odnosno False
-  ako uneti string ne odgovara nazivu ili vrednosti ni jedne instance. Poređenje stringova treba
+  vrednost neke od UslugaNaLetu instanci i vraća True ako je to slučaj, odnosno False
+  ako uneti string ne odgovara vrednosti ni jedne instance. Poređenje stringova treba
   da bude case insensitive.
 
 - static metodu `get_service_from_str` koja za zadati ulazni string vraća UslugaNaLetu instancu
