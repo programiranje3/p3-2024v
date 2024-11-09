@@ -21,11 +21,12 @@ Kreirajte klasu `Putnik` sa sledećim metodama:
   * negativan test bio pre manje od 3 dana
   Napomena: za formate datuma pogledajte tabelu: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 
-* Class metoda `covid_bezbedan_Francuz` za kreiranje putnika iz Francuske koji je COVID bezbedan
-(alternativni konstruktor); metoda prima ime i broj pasoša putnika.
+* Class metoda za kreiranje putnika na osnovu stringa oblika: "ime_prezime; zemlja_porekla; broj_pasosa; covid_status"
+(alternativni konstruktor)
 
 * Metoda koja proverava jednakost datog objekta klase `Putnik` i drugog objekta koji se prosleđuje metodi kao
 ulazni parametar (__eq__); dva putnika se smatraju jednakim ako su iz iste zemlje i imaju isti broj pasoša.
+
 
 Kreirajte klasu `Let` sa sledećim elementima:
 
@@ -41,11 +42,13 @@ Kreirajte klasu `Let` sa sledećim elementima:
   vremenski trenutak; ako je ulazni argument tipa string, on mora biti u formatu `poletanje_dt_format`
 
 * Metoda za dodavanje putnika u listu `putnici`; metoda dodaje novog putnika samo ako je
-  ulazni argument objekat klase `Putnik`, ako taj putnik nije već u listi putnika i ako je COVID bezbedan
+  ulazni argument objekat klase `Putnik`, ako taj putnik nije već u listi putnika i ako je COVID bezbedan.
+  Ako neki od uslova nije ispunjen i nije izvršeno dodavanje putnika, potrebno je ispisati razlog,
+  odnosno koji od uslova nije bio zadovoljen.
 
 * Metoda koja vraća string reprezentaciju objekata date klase tj klase `Let` (__str__)
 
-* Metoda koja vraća preostalo vreme do polaska kao triplet oblika (dani, sati, minuti)
+* Metoda koja vraća preostalo vreme do poletanja kao triplet oblika (dani, sati, minuti)
 
 * Metode za pretvaranje datog objekta klase `Let` u iterator (__iter__, __next__) kroz putnike na letu
   (tj. elemente liste `putnici`)

@@ -5,7 +5,7 @@ if __name__ == '__main__':
     # bob = Putnik("Bob Smith", "UK", "123456", True)
     # john = Putnik("John Smith", "USA", 987656, True)
     # anna = Putnik("Anna Smith", "Spain", "987659")
-    # luis = Putnik.covid_bezbedan_Francuz("Luis Bouve", "123654")
+    # luis = Putnik.from_string("Luis Bouve; France; 123456"; true)
     #
     # print("PUTNICI:\n")
     # print(bob)

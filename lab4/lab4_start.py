@@ -84,6 +84,7 @@ Vezbe, dvocas 4
 # Zadatak 5.1
 
 
+
 #%%
 # print(sum_of_sums(1,3,5,7,9,11,13, n=7))
 
