@@ -26,13 +26,13 @@ Pored postojećih atributa, klasa treba da ima i sledeće atribute:
 
 Sledeće metode klase Putnik je potrebno dopuniti na način opisan u nastavku:
 
-- konstruktor (__init__) - prima 5 ulaznih argumenata, po jedan za svaki atribut osim atributa `usluge`.
+- [DONE] konstruktor (__init__) - prima 5 ulaznih argumenata, po jedan za svaki atribut osim atributa `usluge`.
   Atribut `usluge` treba da bude inicijalizovan na praznu listu.
 
 – Get metodu za atribut `pasos` je potrebno napisati u Pythonic stilu, poznatom kao „lakše je tražiti oproštaj nego dozvolu“
-  (easier to ask for forgiveness than permission - EAFP)
+  (Easier to Ask for Forgiveness than Permission - EAFP)
 
-- Metoda koja vraća string reprezentaciju objekta klase Putnik (__str__) tako da opisuje putnika sa proširenim skupom atributa.
+- [DONE] Metoda koja vraća string reprezentaciju objekta klase Putnik (__str__) tako da opisuje putnika sa proširenim skupom atributa.
 
 Na kraju, potrebno je dodati get i set metode (koristeći odgovarajuće dekoratere) za atribut `cena_karte`;
 atribut treba učiniti privatnim; u okviru set metode bi trebalo obezbediti:
@@ -44,13 +44,13 @@ atribut treba učiniti privatnim; u okviru set metode bi trebalo obezbediti:
 
 Kreirajte klasu PutnikEkonomskeKlase koja nasleđuje klasu Putnik i ima:
 
-- Metodu `dodaj_izabrane_usluge` koja prima rečnik čiji ključevi su usluge koje je putnik kupio (kao instance enumeracije
-  UslugaNaLetu), dok su vrednosti cene tih usluga. Usluge treba dodati u listu `usluge` putnika, a cene koristiti za
+- Metodu `dodaj_izabrane_usluge` koja prima rečnik čiji ključevi su usluge koje je putnik kupio, dok su vrednosti cene tih usluga.
+  Usluge treba dodati u listu `usluge` putnika (ako su instance enumeracije UslugaNaLetu), a cene koristiti za
   uvećanje vrednosti atributa `cena_karte`, ALI samo ako je osnovna cena karte plaćena, odnosno ako atribut `cena_karte`
   ima dodeljenu vrednost; u suprotnom, metoda baca ValueError izuzetak sa odgovarajucom porukom. Metoda takođe treba
   da kreira i prikaže “izveštaj” o dodatnim uslugama i rezultirajućem povećanju cene avionske karte.
 
-- Izmenjenu __str__ metodu tako da se prvo ispisuje "Putnik ekonomske klase", a zatim dostupni podaci o putniku.
+- Izmenjenu __str__ metodu tako da se prvo ispisuje tekst "Putnik ekonomske klase", a zatim dostupni podaci o putniku.
 
 
 *Klasa PutnikBiznisKlase*
@@ -59,8 +59,8 @@ Kreirajte klasu PutnikBiznisKlase koja nasleđuje klasu Putnik i ima:
 
 - Konstruktor (__init__) koji prima iste argumente kao i konstruktor nadređene klase plus argument za usluge koje treba dodati
   atributu `usluge`. Ovaj dodatni argument bi trebalo da bude uređena n-torka stringova (imena usluga) ili instanci enumeracije
-  UslugaNaLetu, pri čemu je podrazumevana vrednost UslugaNaLetu.BRZO_UKRCAVANJE. Metoda treba da proveri validnost svakog
+  UslugaNaLetu, pri čemu je podrazumevana vrednost UslugaNaLetu.PRIORITETNO_UKRCAVANJE. Metoda treba da proveri validnost svakog
   elementa uređene n-torke pre nego što ga doda u listu `usluge`.
   Napomena: konstruktor treba da bude napisan na način koji čini klasu spremnom za višestruko nasleđivanje.
 
-- Izmenjenu metodu __str__ tako da prvo ispisuje “Putnik poslovne klase“, a zatim dostupni podaci o putniku.
+- Izmenjenu metodu __str__ tako da prvo ispisuje tekst “Putnik poslovne klase“, a zatim dostupni podaci o putniku.
