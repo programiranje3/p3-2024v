@@ -1,0 +1,173 @@
+from lab6.putnik import Putnik
+from datetime import datetime
+from sys import stderr
+
+class Let:
+
+    poletanje_dt_format = '%Y-%m-%d %H:%M'
+
+    def __init__(self, let, poletanje, ruta):
+        self.broj_leta = let
+        self.vreme_poletanja = poletanje
+        self.ruta = ruta
+        self.putnici = []
+
+
+    @property
+    def vreme_poletanja(self):
+        if not hasattr(self, '_Let__vreme_poletanja'):
+            self.__vreme_poletanja = None
+        return self.__vreme_poletanja
+
+
+    @vreme_poletanja.setter
+    def vreme_poletanja(self, value):
+        if isinstance(value, str):
+            value = datetime.strptime(value, Let.poletanje_dt_format)
+        if isinstance(value, datetime) and value > datetime.now():
+            self.__vreme_poletanja = value
+        else:
+            stderr.write(f"Greska! Nepoznat format za datum i vreme poletanja -> vrednost nije dodeljenja!\n")
+
+
+    def dodaj_putnika(self, p):
+        if not isinstance(p, Putnik):
+            stderr.write(f"Greska! Pogresan tip ulaznog argumenta, ocekivan objekat klase Putnik, "
+                         f"primljen objekat klase {type(p)}\n")
+            return
+        if p in self.putnici:
+            stderr.write(f"Putnik {p.ime} ({p.pasos}) je vec u listi putnika\n")
+            return
+        if not p.COVID_bezbedan:
+            stderr.write(f"Putnik {p.ime} ({p.pasos}) nema potvrdu da je COVID bezbedan\n")
+            return
+
+        self.putnici.append(p)
+
+
+    def vreme_poletanja_str(self):
+        return datetime.strftime(self.vreme_poletanja, Let.poletanje_dt_format) if self.vreme_poletanja else 'nepoznato'
+
+    def ruta_str(self):
+        if not self.ruta:
+            return "nepoznata"
+        origin, destination = self.ruta
+        return f"{origin} => {destination}"
+
+    def __str__(self):
+        let_str = f"Let {self.broj_leta}\n"
+        let_str += f"Datum i vreme poletanja: {self.vreme_poletanja_str()}\n"
+        let_str += "Ruta: " + self.ruta_str() + "\n"
+        if len(self.putnici) > 0:
+            let_str += "Putnici na letu:\n" + '\n'.join([str(p) for p in self.putnici])
+        else:
+            let_str += "Let jos nema prijavljenih putnika"
+        return let_str
+
+
+    def vreme_do_poletanja(self):
+        if self.vreme_poletanja:
+            dt = self.vreme_poletanja - datetime.now()
+            days = dt.days
+            hours, sec_remained = divmod(dt.seconds, 3600)
+            mins = sec_remained // 60
+            return days, hours, mins
+
+        stderr.write("Greska! Vreme poletanja nije poznato!\n")
+        return None
+
+
+    def __iter__(self):
+        self.__next_index = 0
+        return self
+
+
+    def __next__(self):
+        if self.__next_index == len(self.putnici):
+            raise StopIteration
+
+        next = self.putnici[self.__next_index]
+        self.__next_index += 1
+        return next
+
+
+
+if __name__ == '__main__':
+
+    pass
+
+    # lh1411 = Let('LH1411', '2024-12-20 6:50', ('Belgrade', 'Munich'))
+    # print(lh1411)
+    # print()
+    #
+    # lh992 = Let('LH992', '2024-12-25 12:20', 'Belgrade > Frankfurt')
+    # print(lh992)
+    # print()
+    #
+    # lh1514_dict = {'br_leta':'lh1514',
+    #                'vreme_poletanja': '2025-1-9 16:30',
+    #                'polazna_lokacija': 'Paris',
+    #                'odrediste': 'Berlin'}
+    #
+    # lh1514 = Let.from_dict(lh1514_dict)
+    # print(lh1514)
+    # print()
+    #
+    # bob = PutnikEkonomskeKlase("Bob Smith", "UK", "123456", 250.0, True)
+    # john = PutnikEkonomskeKlase("John Smith", "USA", 987656, 450, True)
+    # luis = PutnikBiznisKlase(ime="Luis Bouve", zemlja='France', pasos="123654", cena_karte=225,
+    #                          usluge=[UslugaNaLetu.OBROK, UslugaNaLetu.WIFI], COVID_bezbedan=True)
+    #
+    # anna = PutnikEkonomskeKlase("Anna Smith", "Spain", "987659", 375, True)
+    # try:
+    #     dodatne_usluge = {UslugaNaLetu.OBROK: 10, UslugaNaLetu.WIFI: 15}
+    #     anna.dodaj_izabrane_usluge(dodatne_usluge)
+    # except ValueError as err:
+    #     stderr.write(f"Iz dodaj_izabrane_usluge: Greska! {err}")
+    #
+    #
+    # print(f"\nDodavanje putnika na let {lh1411.broj_leta}")
+    # for p in [bob, john, anna, luis]:
+    #     lh1411.dodaj_putnika(p)
+    #
+    # print(f"\nPodaci o letu {lh1411.broj_leta} nakon dodavanja putnika na let:\n")
+    # print(lh1411)
+    #
+    # print("\nPutnici sa dodatnim uslugama na letu:")
+    # g = lh1411.generator_putnika_sa_uslugama()
+    # while True:
+    #     try:
+    #         print(next(g))
+    #     except StopIteration:
+    #         print("------- kraj spiska putnika sa dodatnim uslugama --------")
+    #         break
+
+    # for putnik in lh1411.generator_putnika_sa_uslugama():
+    #     print(putnik)
+
+    # Dodacemo putnicima usluge na letu radi provere generatorske metode
+    # try:
+    #     dodatne_usluge_bob = {UslugaNaLetu.IZBOR_SEDISTA: 20, UslugaNaLetu.OSIGURANJE_LETA: 35}
+    #     bob.dodaj_izabrane_usluge(dodatne_usluge_bob)
+    # except ValueError as err:
+    #     stderr.write(f"Iz dodaj_izabrane_usluge: Greska! {err}")
+    #
+    # try:
+    #     dodatne_usluge_john = {UslugaNaLetu.OBROK: 20, UslugaNaLetu.WIFI: 35}
+    #     john.dodaj_izabrane_usluge(dodatne_usluge_john)
+    # except ValueError as err:
+    #     stderr.write(f"Iz dodaj_izabrane_usluge: Greska! {err}")
+    #
+    # print("Kandidati za prelazak u biznis klasu:")
+    # g = lh1411.generator_kandidata_za_biznis_klasu(350)
+    # try:
+    #     while True:
+    #         print(next(g))
+    # except StopIteration:
+    #     print("--- kraj liste kandidata ---")
+
+    # print("\nPutnici kojima je ponudjena mogucnost prelaska u biznis klasu:")
+    # for ind, putnik in enumerate(lh1411.generator_kandidata_za_biznis_klasu(350)):
+    #     print(f"{ind+1}. {putnik}")
+
+
