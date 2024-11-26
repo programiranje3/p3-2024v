@@ -13,9 +13,16 @@ class Putnik:
 
     @property
     def pasos(self):
-        if not hasattr(self, '_Putnik__pasos'):
+        # Option 1
+        # if not hasattr(self, '_Putnik__pasos'):
+        #     self.__pasos = None
+        # return self.__pasos
+        # Option 2: Easier to Ask for Forgiveness than Permission
+        try:
+            return self.__pasos
+        except AttributeError:
             self.__pasos = None
-        return self.__pasos
+            return self.__pasos
 
     @pasos.setter
     def pasos(self, value):
@@ -27,6 +34,30 @@ class Putnik:
             return
 
         stderr.write(f'Pogresno uneta vrednost za pasos => nije izvrsena dodela vrednosti')
+
+    @property
+    def cena_karte(self):
+        try:
+            return self.__cena_karte
+        except AttributeError:
+            self.__cena_karte = None
+            return self.__cena_karte
+
+    @cena_karte.setter
+    def cena_karte(self, value):
+        if isinstance(value, (int, float)) and value > 0:
+            self.__cena_karte = int(value)
+            return
+        if isinstance(value, str):
+            try:
+                value = int(value)
+            except ValueError:
+                stderr.write(f"Greska! Uneti string {value} se ne moze parsirati u int vrednost\n")
+                return
+            if value > 0:
+                self.__cena_karte = value
+        else:
+            stderr.write(f"Greska! Pogresan tip ulazne vrednosti ({type(value)}) => cena karte nije postavljena\n")
 
     def prikazi_usluge(self):
         if len(self.usluge) == 0:
@@ -72,7 +103,6 @@ class Putnik:
         #     self.COVID_bezbedan = True
         self.COVID_bezbedan = ((tip_uverenja.lower() == 'vakcinacija' and time_delta.days < 365) or
                                (tip_uverenja.lower() == 'negativan_test' and time_delta.days < 3))
-
 
 
 if __name__ == '__main__':
